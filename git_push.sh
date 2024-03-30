@@ -14,6 +14,6 @@ str1=" cd C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS/ip-worker-bac
 eval $str1
 echo $(pwd)
 cat ./../ip.txt &> ./ip.txt
-# git add .
-# git commit -m "update $(date) ip_result"
-# git push --set-upstream origin master
+git add .
+git commit -m "update $(date) ip_result"
+git push --set-upstream origin master
