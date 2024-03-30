@@ -17,5 +17,5 @@ cat ./../ip.txt &> ip_vless.txt
 # cat CF-WORKERS/ip.txt &> ip-vless.txt
 git add .
 git commit -m "update $(date) ip_result"
-git push
+git push origin main
 # git pull origin main
