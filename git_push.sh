@@ -1,19 +1,20 @@
-# echo "执行的文件名：$0"
-# echo "上传IP和result"
-# str="/c/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS"
-# pwd_str=$(pwd)
-# echo "$pwd_str"
-# # if [ "$pwd_str" -ne "$str" ]; then `cd "/c/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS"`; fi
-# cd "/c/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS"
-# echo $(pwd)
-# git add .
-# git commit -m "update $(date) ip_result"
-# git push --set-upstream origin master
+echo "执行的文件名：$0"
+echo "上传IP和result"
+str="/c/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS"
+pwd_str=$(pwd)
+echo "$pwd_str"
+# if [ "$pwd_str" -ne "$str" ]; then `cd "/c/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS"`; fi
+cd "/c/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS"
+echo $(pwd)
+git add .
+git commit -m "update $(date) ip_result"
+git push --set-upstream origin master
 
 str1=" cd C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS/ip-worker-backup"
 eval $str1
 echo $(pwd)
-cat ./../ip.txt &> ./ip.txt
+cat ./../ip.txt &> ip-vless.txt
+# cat CF-WORKERS/ip.txt &> ip-vless.txt
 git add .
 git commit -m "update $(date) ip_result"
-git push --set-upstream origin master
+git push
