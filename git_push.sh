@@ -8,4 +8,4 @@ cd "/c/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS"
 echo $(pwd)
 git add .
 git commit -m "update $(date) ip_result"
-git push --set-upstream origin main
+git push --set-upstream origin master
