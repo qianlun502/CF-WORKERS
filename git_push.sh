@@ -13,7 +13,8 @@ git push --set-upstream origin master
 str1=" cd C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS/ip-worker-backup"
 eval $str1
 echo $(pwd)
-cat ./../ip.txt &> ip_vless.txt
+rm v_vless.txt
+cp ./../ip.txt   ip_vless.txt
 # cat CF-WORKERS/ip.txt &> ip-vless.txt
 git add .
 git commit -m "update $(date) ip_result"
