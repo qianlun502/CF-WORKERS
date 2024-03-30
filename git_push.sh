@@ -10,7 +10,7 @@
 # git commit -m "update $(date) ip_result"
 # git push --set-upstream origin master
 
-str1="/c/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS/ip-worker-backup"
+str1=" cd \"C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS/ip-worker-backup"
 eval $str1
 cat ./../ip.txt &> ./ip.txt
 git add .
