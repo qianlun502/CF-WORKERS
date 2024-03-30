@@ -5,3 +5,5 @@ ip template_cfwoker.txt
 backup-ip/
 # local_zone
 starter-ip.sh
+ip-worker-backup/
+
