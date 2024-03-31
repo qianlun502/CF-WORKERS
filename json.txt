@@ -1,1 +1,1 @@
-{"status":"success","country":"英国","countryCode":"GB","region":"ENG","regionName":"英格兰","city":"伦敦","zip":"W1B","lat":51.5074,"lon":-0.127758,"timezone":"Europe/London","isp":"CLOUDFLARE","org":"","as":"AS13335 Cloudflare, Inc.","query":"141.101.120.23"}
+{"status":"success","country":"美国","countryCode":"US","region":"CA","regionName":"加州","city":"旧金山","zip":"94107","lat":37.7803,"lon":-122.39,"timezone":"America/Los_Angeles","isp":"Cloudflare, Inc.","org":"Cloudflare, Inc.","as":"AS13335 Cloudflare, Inc.","query":"162.159.48.32"}

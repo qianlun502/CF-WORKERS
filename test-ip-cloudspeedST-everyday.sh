@@ -42,7 +42,7 @@ function test_speed() {
     if [ ! -e "res.csv" ]; then
                                 sed -n "${item},${item}p" ip.txt &>> depleted-ip.txt
                               # item=$((${item} - 1))
-                              echo "delete:  $item"
+                              echo "测速完 no res.csv 文件 ; delete:  $item"
                                                       i=$item
       sed -n "${item},${item}d" ip.txt
     fi
@@ -58,18 +58,20 @@ function test_speed() {
         sed -i "${item},${item}d" ip.txt
         #这里还有一个问题，如果ip删除之后，ip.txt文档中的序号会发生改变，所以这里一旦删除，下一行ip会上移,这行ip就不会进入测试； 所以item需要减1
         item=$(($item - 1))
-        echo delete $item
+        echo  测速完 速度小于目标值 delete $item
         i=$item
       fi
     fi
   done
 
 }
+file="https://www.learnwebs.top/file/movie_max.mp4"
+
 rm "C:/Users/duoduo/Desktop/result1.log"
 echo 当前速度小于5的节点会被删除
 #参数设置ip测速下限
 # test_speed 5 >> "./result1.log" 2>&1
-test_speed 5  https://www.learnwebs.top/file/movie_max.mp4
+test_speed 5  $file
 echo "$(date) delete ip start " &>> "C:/Users/duoduo/Desktop/result.log"
 ./git_push.sh
 echo "$(date) delete ip end " &>> "C:/Users/duoduo/Desktop/result.log"
@@ -84,7 +86,7 @@ echo "$(date) insert ip start " &>> "C:/Users/duoduo/Desktop/result.log"
 cd ..
 echo pwd
 # ./../all-port-node.sh
-./all-port-node.sh
+./all-port-node.sh $file
 echo "$(date) insert ip end " &>> "C:/Users/duoduo/Desktop/result.log"
 
 #设置了windows 任务计划  每周1-5，10:30 PM 执行；每周6-7 18:30 AM 执行。
