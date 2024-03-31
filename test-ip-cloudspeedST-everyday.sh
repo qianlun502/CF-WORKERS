@@ -12,7 +12,7 @@ function test_speed() {
   fi
   line=$(awk 'END{print NR}' ip.txt)
   speed_sv=$1
-  url_file=$2
+  url_file=$file
   echo url_file:"$url_file"
   echo "ip.txt文本行数:$line"
   # for item in $(seq $line); do
@@ -71,7 +71,7 @@ rm "C:/Users/duoduo/Desktop/result1.log"
 echo 当前速度小于5的节点会被删除
 #参数设置ip测速下限
 # test_speed 5 >> "./result1.log" 2>&1
-test_speed 5  $file
+test_speed 5
 echo "$(date) delete ip start " &>> "C:/Users/duoduo/Desktop/result.log"
 ./git_push.sh
 echo "$(date) delete ip end " &>> "C:/Users/duoduo/Desktop/result.log"
