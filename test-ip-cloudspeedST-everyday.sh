@@ -1,6 +1,7 @@
 echo #!/etc/bash
 function test_speed() {
   echo "对之前优选ip库进行筛选测速，每天进行;对于不合格的ip直接进行删除或者放入废弃ip库（depleted-ip.txt）:$0"
+
   # str=$(echo pwd)
   str="cd \"C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS\""
   eval $str
@@ -11,6 +12,8 @@ function test_speed() {
   fi
   line=$(awk 'END{print NR}' ip.txt)
   speed_sv=$1
+  url_file=$2
+  echo url_file:"$url_file"
   echo "ip.txt文本行数:$line"
   # for item in $(seq $line); do
   for ((i = 1; i <= "${line}"; i++)); do
@@ -34,7 +37,7 @@ function test_speed() {
     #                                               exit 1
     # fi
     # echo . | ./../CloudflareST -tp "$port" -n 1000 -dn 1 -p 1 -tl 300 -sl "$speed_sv" -t 4  -tlr 0.3 -url https://www.learnwebs.top/file/movie_max.mp4 -ip "$address" -o ./res.csv
-    echo . | ./../CloudflareST -tp "$port" -n 1000 -dn 1 -p 1 -tl 300 -sl "$speed_sv" -t 4  -tlr 0.3 -url https://gh-proxy.learnwebs.top/https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/download/v2.21.12/Waifu2x-Extension-GUI-v2.21.12-Portable.7z -ip "$address" -o ./res.csv
+    echo . | ./../CloudflareST -tp "$port" -n 1000 -dn 1 -p 1 -tl 300 -sl "$speed_sv" -t 4  -tlr 0.3 -url $url_file -ip "$address" -o ./res.csv
     #测速跑完之后，查看res.csv文件是否存在，若不在或者 下载速度小于 3删除，则删除该ip
     if [ ! -e "res.csv" ]; then
                                 sed -n "${item},${item}p" ip.txt &>> depleted-ip.txt
@@ -66,7 +69,7 @@ rm "C:/Users/duoduo/Desktop/result1.log"
 echo 当前速度小于5的节点会被删除
 #参数设置ip测速下限
 # test_speed 5 >> "./result1.log" 2>&1
-test_speed 5
+test_speed 5  https://www.learnwebs.top/file/movie_max.mp4
 echo "$(date) delete ip start " &>> "C:/Users/duoduo/Desktop/result.log"
 ./git_push.sh
 echo "$(date) delete ip end " &>> "C:/Users/duoduo/Desktop/result.log"
