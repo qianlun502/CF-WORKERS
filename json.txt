@@ -1,1 +1,1 @@
-{"status":"success","country":"加拿大","countryCode":"CA","region":"ON","regionName":"安大略","city":"多伦多","zip":"M5A","lat":43.6532,"lon":-79.3832,"timezone":"America/Toronto","isp":"Cloudflare, Inc.","org":"Cloudflare, Inc.","as":"AS13335 Cloudflare, Inc.","query":"162.159.135.184"}
+{"status":"success","country":"美国","countryCode":"US","region":"CA","regionName":"加州","city":"旧金山","zip":"94107","lat":37.7642,"lon":-122.3993,"timezone":"America/Los_Angeles","isp":"Cloudflare, Inc.","org":"Cloudflare, Inc.","as":"AS13335 Cloudflare, Inc.","query":"172.64.139.1"}
