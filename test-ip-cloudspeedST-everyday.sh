@@ -33,7 +33,8 @@ function test_speed() {
     #                           echo "ip长度为0"
     #                                               exit 1
     # fi
-    echo . | ./../CloudflareST -tp "$port" -n 1000 -dn 1 -p 1 -tl 300 -sl "$speed_sv" -t 4  -tlr 0.3 -url https://www.learnwebs.top/file/movie_max.mp4 -ip "$address" -o ./res.csv
+    # echo . | ./../CloudflareST -tp "$port" -n 1000 -dn 1 -p 1 -tl 300 -sl "$speed_sv" -t 4  -tlr 0.3 -url https://www.learnwebs.top/file/movie_max.mp4 -ip "$address" -o ./res.csv
+    echo . | ./../CloudflareST -tp "$port" -n 1000 -dn 1 -p 1 -tl 300 -sl "$speed_sv" -t 4  -tlr 0.3 -url https://gh-proxy.learnwebs.top/https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/download/v2.21.12/Waifu2x-Extension-GUI-v2.21.12-Portable.7z -ip "$address" -o ./res.csv
     #测速跑完之后，查看res.csv文件是否存在，若不在或者 下载速度小于 3删除，则删除该ip
     if [ ! -e "res.csv" ]; then
                                 sed -n "${item},${item}p" ip.txt &>> depleted-ip.txt
