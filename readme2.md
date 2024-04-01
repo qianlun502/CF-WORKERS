@@ -5,7 +5,7 @@ git_push.sh 提交git，在线ip库，生成节点需要在线ip文档
 ip_tem_auto.sh  从nowip_hosts中获取ip，然后查询地域信息，写入ip.txt
 parse_json.sh   格式化json ，获取对应字段
 port-2096.sh    开放服务器2096端口，并重启防火墙
-starter-ip.sh   ip服务的启动器
+starter-ip.sh   ip服务的启动器；根据ip来获取地址，并且将不同地区的ip库写入本地仓库，根据地域的切换来切换不同的ip库，减少筛选的时间。
 temp.sh 临时编辑测试，不重要
 test-ip-cloudspeedST-everyday.sh    每天测试在线ip库中的ip是否失效，并删除失效ip;如果节点数量小于某值，启动all-port-node.sh 筛选出新的ip
 
