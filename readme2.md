@@ -20,3 +20,6 @@ all-port-node.sh 筛选所有https（443 2053 2083 2087 2096 8443）或者http�
 /c/software/v2rayN/CloudflareST_windows_amd64/VMESS下：
 produce-vmess.sh 生成VMESS节点
 ip-vless-to-vmess.sh VLESS节点转VMESS
+
+
+awk -F'#' '{print $1}' depleted-ip.txt |sort  -r|uniq -d  

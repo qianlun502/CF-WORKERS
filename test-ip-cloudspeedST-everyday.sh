@@ -44,7 +44,9 @@ function test_speed() {
                               # item=$((${item} - 1))
                               echo "测速完 no res.csv 文件 ; delete:  $item"
                                                       i=$item
-      sed -n "${item},${item}d" ip.txt
+      sed -i "${item},${item}d" ip.txt
+      item=$(($item - 1))
+       i=$item
     fi
     if [ -e "res.csv" ]; then
                               speed=$(sed -n "2,2p" "res.csv" | awk -F ',' '{print $6}') #{}里面只能使用''
@@ -57,8 +59,8 @@ function test_speed() {
         echo $(sed -n "${item},${item}p" ip.txt)"  speed:  $speed" &>> depleted-ip.txt
         sed -i "${item},${item}d" ip.txt
         #这里还有一个问题，如果ip删除之后，ip.txt文档中的序号会发生改变，所以这里一旦删除，下一行ip会上移,这行ip就不会进入测试； 所以item需要减1
+         echo  测速完 速度小于目标值 delete $item
         item=$(($item - 1))
-        echo  测速完 速度小于目标值 delete $item
         i=$item
       fi
     fi
@@ -189,6 +191,7 @@ echo "$(date) delete ip end " &>> "C:/Users/duoduo/Desktop/result.log"
 count_line=$(awk 'END{print NR}' ip.txt)
 if [ "$count_line" -gt 50 ]; then
                                 echo "节点数量够多了，不需要再筛选了" &>> "C:/Users/duoduo/Desktop/result.log"
+                                exit 0
 fi
 echo "节点数量不够,请添加节点" &>> "C:/Users/duoduo/Desktop/result.log"
 echo "$(date) insert ip start " &>> "C:/Users/duoduo/Desktop/result.log"
