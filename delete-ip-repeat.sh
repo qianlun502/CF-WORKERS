@@ -28,7 +28,7 @@ function get_params() {
 }
 echo 删除重复ip:port
 echo 请传入filename 和file path
-get_params $@
+get_params "$@"
 #depleted-ip去重
 # get_params -filename depleted-ip.txt -filepath "C://software//v2rayN//CloudflareST_windows_amd64//CF-WORKERS"
 # # ip库去重
@@ -48,7 +48,7 @@ for ((i = 1; i <= $repeat_count; i++)); do
     line_txt=$(sed -n "${i},${i}p" repeat)
     echo $line_txt
     #line_txt 文本重复次数
-    delete_count=$( cat  $filename | grep "$line_txt" | awk -F ' ' '{print $1}'|awk -F '#' '{print $1}' | sort -r | uniq -c | awk '{print $1}')
+    delete_count=$( cat  $filename | grep "$line_txt" | awk -F ' ' '{print $1}' | awk -F '#' '{print $1}' | sort -r | uniq -c | awk '{print $1}')
     echo delete_count: $delete_count
 
     for ((j = 1; j < $delete_count; j++)); do
