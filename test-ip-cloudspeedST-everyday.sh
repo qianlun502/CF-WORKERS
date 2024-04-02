@@ -202,3 +202,5 @@ echo pwd
 ./all-port-node.sh $@
 echo "$(date) insert ip end " &>> "C:/Users/duoduo/Desktop/result.log"
 # 设置了windows 任务计划  每周1-5，10:30 PM 执行；每周6-7 18:30 AM 执行。
+
+
