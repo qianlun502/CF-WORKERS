@@ -16,7 +16,7 @@ function test_speed() {
   echo url_file:"$url_file"
   echo "ip.txt文本行数:$line"
   # for item in $(seq $line); do
-  for ((i = 1; i <= "${line}"; i++)); do
+  for ((i = 67; i <= "${line}"; i++)); do
     #   echo "${i}"
     # done
     # i=$(($line + 1))  #用于测试当当前行为空行时，后续程序执行状况。
