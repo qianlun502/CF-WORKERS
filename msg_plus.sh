@@ -6,4 +6,4 @@ params_push="{
         \"template\": \"html\",
         \"channel\": \"wechat\", }"
 url_push='https://www.pushplus.plus/send'
-echo $params_push
+echo "$params_push"
