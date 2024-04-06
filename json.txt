@@ -1,1 +1,1 @@
-{"status":"success","country":"法国","countryCode":"FR","region":"IDF","regionName":"法兰西岛","city":"巴黎","zip":"75001","lat":48.8323,"lon":2.4075,"timezone":"Europe/Paris","isp":"Cloudflare, Inc.","org":"Cloudflare, Inc.","as":"AS13335 Cloudflare, Inc.","query":"173.245.49.54"}
+{"status":"success","country":"美国","countryCode":"US","region":"CA","regionName":"加州","city":"洛杉矶","zip":"90009","lat":34.0522,"lon":-118.244,"timezone":"America/Los_Angeles","isp":"Cloudflare, Inc.","org":"Cloudflare, Inc.","as":"AS13335 Cloudflare, Inc.","query":"162.159.38.76"}
