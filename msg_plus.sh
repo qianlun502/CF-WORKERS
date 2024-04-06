@@ -16,4 +16,4 @@ curl 'https://www.pushplus.plus/api/send' \
   -H 'sec-ch-ua: "Microsoft Edge";v="123", "Not:A-Brand";v="8", "Chromium";v="123"' \
   -H 'sec-ch-ua-mobile: ?0' \
   -H 'sec-ch-ua-platform: "Windows"' \
-  --data-raw '{"token":"3259650b04724322bb80e7c3c8133402","title":"自动任务success","content":"当前ip数量为count_line=$(awk 'END{print NR}' ip.txt)","template":"html","channel":"wechat"}'
+  --data-raw '{"token":"3259650b04724322bb80e7c3c8133402","title":"自动任务success","content":"当前ip数量为","template":"html","channel":"wechat"}'
