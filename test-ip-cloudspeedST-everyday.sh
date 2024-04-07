@@ -183,33 +183,33 @@ tls=${tls:-0.3} #丢包
 target_count=${target_count:-50}
 echo "\$sl:"$sl,"\$tls:"$tls,"\$url:"$file,"\$target_count:"$target_count
 
-# # echo exit 未注释
-# # exit 0
-# rm "C:/Users/duoduo/Desktop/result1.log"
-# echo 当前速度小于5的节点会被删除
-# #参数设置ip测速下限
-# # test_speed 5 >> "./result1.log" 2>&1
-# test_speed $sl
-# echo "$(date) delete ip start " &>> "C:/Users/duoduo/Desktop/result.log"
-# ./git_push.sh
-# echo "$(date) delete ip end " &>> "C:/Users/duoduo/Desktop/result.log"
+# echo exit 未注释
+# exit 0
+rm "C:/Users/duoduo/Desktop/result1.log"
+echo 当前速度小于5的节点会被删除
+#参数设置ip测速下限
+# test_speed 5 >> "./result1.log" 2>&1
+test_speed $sl
+echo "$(date) delete ip start " &>> "C:/Users/duoduo/Desktop/result.log"
+./git_push.sh
+echo "$(date) delete ip end " &>> "C:/Users/duoduo/Desktop/result.log"
 
-# #是否测试所有端口ip 添加新的优选ip 如果节点数量小于 100 才会执行添加新的节点
-# count_line=$(awk 'END{print NR}' ip.txt)
-# if [ "$count_line" -gt $target_count ]; then
-#                                 echo "节点数量够多了，不需要再筛选了" &>> "C:/Users/duoduo/Desktop/result.log"
-#                                 exit 0
-# fi
-# echo "节点数量不够,请添加节点" &>> "C:/Users/duoduo/Desktop/result.log"
-# echo "$(date) insert ip start " &>> "C:/Users/duoduo/Desktop/result.log"
-# cd ..
-# echo pwd
-# echo 添加方式1：筛选ip
-# # ./../all-port-node.sh
-#   #./all-port-node.sh $file
-# ./all-port-node.sh $@
-# echo "$(date) insert ip end " &>> "C:/Users/duoduo/Desktop/result.log"
-# # 设置了windows 任务计划  每周1-5，10:30 PM 执行；每周6-7 18:30 AM 执行。
+#是否测试所有端口ip 添加新的优选ip 如果节点数量小于 100 才会执行添加新的节点
+count_line=$(awk 'END{print NR}' ip.txt)
+if [ "$count_line" -gt $target_count ]; then
+                                echo "节点数量够多了，不需要再筛选了" &>> "C:/Users/duoduo/Desktop/result.log"
+                                exit 0
+fi
+echo "节点数量不够,请添加节点" &>> "C:/Users/duoduo/Desktop/result.log"
+echo "$(date) insert ip start " &>> "C:/Users/duoduo/Desktop/result.log"
+cd ..
+echo pwd
+echo 添加方式1：筛选ip
+# ./../all-port-node.sh
+  #./all-port-node.sh $file
+./all-port-node.sh $@
+echo "$(date) insert ip end " &>> "C:/Users/duoduo/Desktop/result.log"
+# 设置了windows 任务计划  每周1-5，10:30 PM 执行；每周6-7 18:30 AM 执行。
 
 echo 添加方式2：废弃ip库中获取。
 cd C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS && ./getip-depleted-ip.sh $@ -count $target_count
