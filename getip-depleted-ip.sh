@@ -25,10 +25,15 @@ function getIpByCloudST() {
     #先直接根据返回ip，减少测速的ip
   line=$(awk 'END{print NR}' depleted-ip.txt)
   echo "line:$line"
-  speed_sv=$1
+  # speed_sv=$1
   for ((i = 1; i <= line; i++)); do
+    line_ip=$(awk 'END{print NR}' ip.txt)
+    if [[ $(awk -v num1="$count" -v num2="$line_ip" 'BEGIN{print(num1<num2)?"0":"1"}') -eq 0 ]]; then
+      echo ip count数量够了，end
+      break
+    fi
     echo "${i}"
-    i=89
+    # i=89
     ip_str=$(sed -n "$i,${i}p" depleted-ip.txt | awk '{print $1}') #表达式不能单引号中展开 https://www.shellcheck.net/wiki/SC2016
     echo "$ip_str"
     if [ -z "$(sed -n "${i},${i}p" depleted-ip.txt)" ]; then
@@ -40,7 +45,7 @@ function getIpByCloudST() {
     port=$(echo "$ip_str"  | awk -F '#' '{print $1}' | awk -F ':' '{print $2}')
     echo "$address : $port"
     rm res.csv
-    echo . | ./../CloudflareST -tp "$port" -n 1000 -dn 1 -p 1 -tl 300 -sl "$speed_sv" -t 4  -tlr 0.3 -url https://www.learnwebs.top/file/movie_max.mp4 -ip "$address" -o ./res.csv
+    echo . | ./../CloudflareST -tp "$port" -n 1000 -dn 1 -p 1 -tl 300 -sl "$speed_sv" -t 4  -tlr "$tlr" -url "$file" -ip "$address" -o ./res.csv
 
      #测速跑完之后，查看res.csv文件是否存在，若不在或者 下载速度小于 3删除，则删除该ip
     if [ ! -e "res.csv" ]; then
@@ -74,6 +79,56 @@ function get_args_by_getopt()  { #支持短选项和长选项
 function get_args_by_getopts()  { #仅支持短选项
     echo "$1" # arguments are accessible through $1, $2,...
 }
+function getopts_params2() { #直接解析，不适用getopt
+  echo $@
+  ARGS=$@
+  echo $ARGS
+  eval set -- $ARGS
+  while [ true ]; do
+    case "${1}" in
+      -tp)
+        echo "tp port = $2"
+        tp=$2
+        shift 2
+        ;;
+      -url)
+        echo "url= $2 "
+         url=$2
+        shift 2
+        ;;
+      -tls)
+        echo "tlr= $2 "
+        tls=$2
+        shift 2
+        ;;
+      -sl)
+        echo "tlr= $2 "
+        sl=$2
+        shift 2
+        ;;
+      -count)
+        echo "count= $2 "
+        count=$2
+        shift 2
+        ;;
+      --)
+        echo end
+        break
+        ;;
+            "")
+        echo "echo end"
+        break
+        ;;
+      *)
+        echo "default (none of above)"
+        exit 1
+        ;;
+    esac
+
+  done
+
+}
+cd C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS && ./msg_plus.sh -refer $(echo $0 | awk -F '\' '{print $NF}'):start
 
 str="cd \"C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS\""
 eval "$str"
@@ -81,10 +136,26 @@ if [ ! -e "depleted-ip.txt" ]; then
                                    echo "无 depleted-ip.txt"
                                                               exit 1
 fi
-target=3
-getIpBySpeed $target
+
+file="https://gh-proxy.learnwebs.top/https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/download/v2.21.12/Waifu2x-Extension-GUI-v2.21.12-Portable.7z"
+# file1=https://www.learnwebs.top/file/movie_max.mp4
+file1="${url:-$file}"
+echo "$file1"
+file=$file1
+echo "$file"
+
+sl=${sl:-5} #若未设置速度下限，默认为5
+tlr=${tlr:-0.3} #丢包
+count=${count:-50} #设置目标数量，获取指定数量节点，退出。
+speed_sv=$sl
+echo "\$sl:"$sl,"\$tls:"$tls,"\$url:"$file,"\$count:"$count
+
+target=$sl
+# getIpBySpeed $target
 
 getIpByCloudST $target
 # exit 0
 
 ./git_push.sh
+
+cd C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS && ./msg_plus.sh -refer $(echo $0 | awk -F '\' '{print $NF}'):end

@@ -162,6 +162,7 @@ function getopts_params2() { #直接解析，不适用getopt
 # ##getopts_params -p443 -u909 -tlr343 3434 #-p '443' -u '909' -t -l 'r343' -- '3434' #-tlr 被差分为-t -l
 # ##getopts_params  --port=443 --url=909 343 3434
 
+cd C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS && ./msg_plus.sh -refer $(echo $0 | awk -F '\' '{print $NF}'):start
 #使用getopt参数解析
 echo $0
 getopts_params2 $@
@@ -204,5 +205,5 @@ echo "$(date) insert ip end " &>> "C:/Users/duoduo/Desktop/result.log"
 # 设置了windows 任务计划  每周1-5，10:30 PM 执行；每周6-7 18:30 AM 执行。
 echo pushplus 提示信息 start
 # cd CF-WORKERS && ./msg_plus.sh $(echo $0 | awk -F '\' '{print $NF}')
-cd C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS && ./msg_plus.sh -refer $(echo $0 | awk -F '\' '{print $NF}')
+cd C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS && ./msg_plus.sh -refer $(echo $0 | awk -F '\' '{print $NF}'):end
 echo -e "\npushplus 提示信息 end"
