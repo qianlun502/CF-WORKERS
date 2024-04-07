@@ -44,7 +44,7 @@ function getIpByCloudST() {
     address=$(echo "$ip_str" | awk -F '#' '{print $1}' | awk -F ':' '{print $1}')
     port=$(echo "$ip_str"  | awk -F '#' '{print $1}' | awk -F ':' '{print $2}')
     echo "$address : $port"
-    rm res.csv
+    if [ -e res.csv ]; then rm res.csv; fi
     echo . | ./../CloudflareST -tp "$port" -n 1000 -dn 1 -p 1 -tl 300 -sl "$speed_sv" -t 4  -tlr "$tlr" -url "$file" -ip "$address" -o ./res.csv
 
      #测速跑完之后，查看res.csv文件是否存在，若不在或者 下载速度小于 3删除，则删除该ip
