@@ -129,7 +129,7 @@ function getopts_params2() { #直接解析，不适用getopt
 
 }
 cd C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS && ./msg_plus.sh -refer $(echo $0 | awk -F '\' '{print $NF}'):start
-
+getopts_params2 $@
 str="cd \"C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS\""
 eval "$str"
 if [ ! -e "depleted-ip.txt" ]; then
