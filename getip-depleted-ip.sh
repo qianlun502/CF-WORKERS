@@ -111,6 +111,11 @@ function getopts_params2() { #直接解析，不适用getopt
         count=$2
         shift 2
         ;;
+      -target_count)
+        echo "target_count= $2 "
+        count=$2
+        shift 2
+        ;;
       --)
         echo end
         break
