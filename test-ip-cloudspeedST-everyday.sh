@@ -16,7 +16,7 @@ function test_speed() {
   echo url_file:"$url_file"
   echo "ip.txt文本行数:$line"
   # for item in $(seq $line); do
-  for ((i = 67; i <= "${line}"; i++)); do
+  for ((i = 1; i <= "${line}"; i++)); do
     #   echo "${i}"
     # done
     # i=$(($line + 1))  #用于测试当当前行为空行时，后续程序执行状况。
@@ -202,5 +202,7 @@ echo pwd
 ./all-port-node.sh $@
 echo "$(date) insert ip end " &>> "C:/Users/duoduo/Desktop/result.log"
 # 设置了windows 任务计划  每周1-5，10:30 PM 执行；每周6-7 18:30 AM 执行。
-
-
+echo pushplus 提示信息 start
+# cd CF-WORKERS && ./msg_plus.sh $(echo $0 | awk -F '\' '{print $NF}')
+cd C:/software/v2rayN/CloudflareST_windows_amd64/CF-WORKERS && ./msg_plus.sh -refer $(echo $0 | awk -F '\' '{print $NF}')
+echo -e "\npushplus 提示信息 end"
