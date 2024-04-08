@@ -11,6 +11,16 @@ function getopts_params2() { #直接解析，不适用getopt
         refer=$2
         shift 2
         ;;
+      -file)
+        echo "file = $2"
+        file=$2
+        shift 2
+        ;;
+      -path)
+        echo "file = $2"
+        path=$2
+        shift 2
+        ;;
       --)
         echo end
         break
@@ -29,10 +39,12 @@ function getopts_params2() { #直接解析，不适用getopt
 
 }
 # https://www.pushplus.plus/push1.html
-count_line=$(awk 'END{print NR}' ip.txt)
+
 echo 调用的程序名称 $@
 getopts_params2 $@
 echo  ${refer}
+file=${fill:-ip.txt}
+count_line=$(awk 'END{print NR}' "$file")
 json_body="{\"token\":\"3259650b04724322bb80e7c3c8133402\",\"title\":\"work task success\",\"content\":\" now ip count $count_line,\"template\":\"html\",\"channel\":\"wechat\"}"
 curl 'https://www.pushplus.plus/api/send' \
   -H 'Accept: */*' \
