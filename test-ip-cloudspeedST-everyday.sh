@@ -207,7 +207,21 @@ echo pwd
 echo 添加方式1：筛选ip
 # ./../all-port-node.sh
   #./all-port-node.sh $file
-./all-port-node.sh $@
+  temp_count=0
+   line_ip=$(awk 'END{print NR}' ip.txt) #当前ip库数量
+echo 如果\$temp_count 3次之后，回收废弃ip
+until [ $temp_count -gt 3 ] || [[ $(awk -v num1="$target_count" -v num2="$line_ip" 'BEGIN{print(num1<num2)?"0":"1"}') -eq 0 ]]; do
+  # body
+  echo  all-port-node执行第$temp_count 次
+   line_ip=$(awk 'END{print NR}' ip.txt)
+  #   if [[ $(awk -v num1="$count" -v num2="$line_ip" 'BEGIN{print(num1<num2)?"0":"1"}') -eq 0 ]]; then
+  #     echo ip count数量够了，end
+  #     break
+  # fi
+  ./all-port-node.sh $@
+done
+
+# ./all-port-node.sh $@
 echo "$(date) insert ip end " &>> "C:/Users/duoduo/Desktop/result.log"
 # 设置了windows 任务计划  每周1-5，10:30 PM 执行；每周6-7 18:30 AM 执行。
 

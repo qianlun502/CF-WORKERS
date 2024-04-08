@@ -37,7 +37,7 @@ echo $(pwd)
 
 eval "cd $filepath"
 echo $(pwd)
-filename=depleted-ip.txt
+filename=${filename:-depleted-ip.txt}
 
 #先输出文档重复行
 awk -F'#' '{print $1}' $filename | sort -r | uniq -d &> repeat

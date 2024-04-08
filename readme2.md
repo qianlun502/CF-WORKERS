@@ -1,5 +1,6 @@
 C:\software\v2rayN\CloudflareST_windows_amd64\CF-WORKERS下
 
+delete-ip-repeat.sh  删除重复ip 需要传入参数 filepath和 filename
 getip-depleted-ip.sh   从废弃节点库中获取节点，即回收
 git_push.sh 提交git，在线ip库，生成节点需要在线ip文档
 ip_tem_auto.sh  从nowip_hosts中获取ip，然后查询地域信息，写入ip.txt
@@ -23,3 +24,6 @@ ip-vless-to-vmess.sh VLESS节点转VMESS
 
 
 awk -F'#' '{print $1}' depleted-ip.txt |sort  -r|uniq -d  
+
+ip.txt 优选官方ip库
+ip-cf-proxy.txt 优选反代ip库
