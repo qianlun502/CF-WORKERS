@@ -189,7 +189,8 @@ rm "C:/Users/duoduo/Desktop/result1.log"
 echo 当前速度小于5的节点会被删除
 #参数设置ip测速下限
 # test_speed 5 >> "./result1.log" 2>&1
-test_speed $sl
+
+# test_speed $sl
 echo "$(date) delete ip start " &>> "C:/Users/duoduo/Desktop/result.log"
 ./git_push.sh
 echo "$(date) delete ip end " &>> "C:/Users/duoduo/Desktop/result.log"
@@ -207,7 +208,7 @@ echo pwd
 echo 添加方式1：筛选ip
 # ./../all-port-node.sh
   #./all-port-node.sh $file
-  temp_count=0
+  temp_count=1
    line_ip=$(awk 'END{print NR}' ip.txt) #当前ip库数量
 echo 如果\$temp_count 3次之后，回收废弃ip
 until [ $temp_count -gt 3 ] || [[ $(awk -v num1="$target_count" -v num2="$line_ip" 'BEGIN{print(num1<num2)?"0":"1"}') -eq 0 ]]; do
@@ -219,6 +220,7 @@ until [ $temp_count -gt 3 ] || [[ $(awk -v num1="$target_count" -v num2="$line_i
   #     break
   # fi
   ./all-port-node.sh $@
+  ((temp_count++))
 done
 
 # ./all-port-node.sh $@
