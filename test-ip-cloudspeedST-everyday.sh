@@ -190,7 +190,7 @@ echo 当前速度小于5的节点会被删除
 #参数设置ip测速下限
 # test_speed 5 >> "./result1.log" 2>&1
 
-# test_speed $sl
+test_speed $sl
 echo "$(date) delete ip start " &>> "C:/Users/duoduo/Desktop/result.log"
 ./git_push.sh
 echo "$(date) delete ip end " &>> "C:/Users/duoduo/Desktop/result.log"
