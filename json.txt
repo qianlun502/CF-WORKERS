@@ -1,1 +1,1 @@
-{"status":"success","country":"荷兰","countryCode":"NL","region":"NH","regionName":"北荷兰省","city":"阿姆斯特丹","zip":"1012","lat":52.3667,"lon":4.89454,"timezone":"Europe/Amsterdam","isp":"Cloudflare, Inc.","org":"Cloudflare, Inc.","as":"AS13335 Cloudflare, Inc.","query":"162.159.160.157"}
+{"status":"success","country":"加拿大","countryCode":"CA","region":"ON","regionName":"安大略","city":"多伦多","zip":"M5A","lat":43.6532,"lon":-79.3832,"timezone":"America/Toronto","isp":"Cloudflare, Inc.","org":"Cloudflare, Inc.","as":"AS13335 Cloudflare, Inc.","query":"162.159.152.98"}
